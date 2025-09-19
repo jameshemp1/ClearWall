@@ -1,0 +1,59 @@
+﻿<Window x:Class="ClearWall.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClearWall"
+        mc:Ignorable="d"
+        Title="ClearWall" Height="450" Width="800">
+    <Grid Background="#e5e7bf">
+        <TabControl>
+            <TabItem Header="Firewall" >
+                <!-- Firewall tab -->
+                <Grid Background="#e5e7bf">
+                    <Border BorderBrush="Black" BorderThickness="1" Width="80" HorizontalAlignment="Left">
+                        <StackPanel Background="#e5e7bf"
+                                Width="100"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Left">
+                            <!-- Side Menu -->
+                            <Menu Height="450"
+                              Background="Transparent">
+                                <!-- Menu Items for changing UI content -->
+                                <MenuItem Header="Create Rules">
+                                    <!-- Sub Menu -->
+                                    <MenuItem Header="IP" Click="CreateIPMenuItem_Click"/>
+                                    <MenuItem Header="Protocol" Click="CreateProtMenuItem_Click" />
+                                </MenuItem>
+                                <MenuItem Header="Delete Rule" Click="DeleteRuleMenuItem_Click"/>
+                                <MenuItem Header="Rules" Click="RulesMenuItem_Click"/>
+                            </Menu>
+                        </StackPanel>
+                    </Border>
+                    <!-- Displays content selected from menu -->
+                    <ContentControl Name="MainContent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="85,0,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Analyzer">
+                <!-- Analyzer tab -->
+                <Grid Background="#e5e7bf">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Capture Interface -->
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <ComboBox x:Name="InterfaceComboBox" Width="200" Margin="0,0,5,0"/>
+                        <ToggleButton x:Name="CaptureToggleButton" Content="Start Capture" Width="100" Margin="0,0,5,0" Click="CaptureToggleButton_Click"/>
+                        <Button x:Name="ClearButton" Content="Clear Packets" Width="100" Click="ClearButton_Click"/>
+                    </StackPanel>
+
+                    <!-- Packet Display UserControl -->
+                    <local:UserControlPacketCapture x:Name="PacketDisplay" Grid.Row="1"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

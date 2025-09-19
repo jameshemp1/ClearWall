@@ -1,0 +1,41 @@
+﻿<!-- User Control content for creating protocol rules-->
+<UserControl x:Class="ClearWall.UserControlCreateRulesProt"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClearWall"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="700">
+    <Grid Margin="10">
+        <StackPanel>
+            <!--- Interface -->
+            <TextBlock Text="Protocol" />
+            <ComboBox x:Name="ProtocolComboBox">
+                <ComboBoxItem>TCP</ComboBoxItem>
+                <ComboBoxItem>UDP</ComboBoxItem>
+                <ComboBoxItem>ICMP</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Action (optional for exclusive rules)" />
+            <ComboBox x:Name="ActionComboBox">
+                <ComboBoxItem>Allow</ComboBoxItem>
+                <ComboBoxItem>Block</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Direction" />
+            <ComboBox x:Name="DirectionComboBox">
+                <ComboBoxItem>Inbound</ComboBoxItem>
+                <ComboBoxItem>Outbound</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Inclusive (applies to this address) or Exclusive (applies to all but this address)" />
+            <ComboBox x:Name="InclusiveExclusiveComboBox">
+                <ComboBoxItem>Inclusive</ComboBoxItem>
+                <ComboBoxItem>Exclusive</ComboBoxItem>
+            </ComboBox>
+
+            <Button Content="Create Rule" Click="CreateRuleButton_Click" Margin="0,10,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

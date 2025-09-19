@@ -1,0 +1,23 @@
+﻿<!-- User Control content for packet capture-->
+<UserControl x:Class="ClearWall.UserControlPacketCapture"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClearWall"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!-- DataGrid to Display Packets -->
+        <DataGrid x:Name="PacketDataGrid" EnableRowVirtualization="True" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" AutoGenerateColumns="False" CanUserAddRows="False" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Timestamp" Binding="{Binding Timestamp}" Width="150"/>
+                <DataGridTextColumn Header="Source IP" Binding="{Binding SourceIP}" Width="150"/>
+                <DataGridTextColumn Header="Destination IP" Binding="{Binding DestinationIP}" Width="150"/>
+                <DataGridTextColumn Header="Protocol" Binding="{Binding Protocol}" Width="100"/>
+                <DataGridTextColumn Header="Length" Binding="{Binding Length}" Width="100"/>
+                <DataGridTextColumn Header="Payload" Binding="{Binding Payload}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

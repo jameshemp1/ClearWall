@@ -1,0 +1,26 @@
+﻿<!-- User Control content for Showing rules-->
+<UserControl x:Class="ClearWall.UserControlShowRules"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClearWall"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="700">
+    <Grid>
+        <DataGrid ItemsSource="{Binding FirewallRules}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0" RowBackground="White" AlternatingRowBackground="LightGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300"/>
+                <DataGridTextColumn Header="Direction" Binding="{Binding Direction}" Width="100"/>
+                <DataGridTextColumn Header="Action" Binding="{Binding Action}" Width="100"/>
+                <DataGridTextColumn Header="Protocol" Binding="{Binding Protocol}" Width="100"/>
+                <DataGridTextColumn Header="Local Ports" Binding="{Binding LocalPorts}" Width="100"/>
+                <DataGridTextColumn Header="Remote Ports" Binding="{Binding RemotePorts}" Width="100"/>
+                <DataGridTextColumn Header="Local Addresses" Binding="{Binding LocalAddresses}" Width="200"/>
+                <DataGridTextColumn Header="Remote Addresses" Binding="{Binding RemoteAddresses}" Width="200"/>
+                <DataGridTextColumn Header="Enabled" Binding="{Binding Enabled}" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
